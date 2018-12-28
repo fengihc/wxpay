@@ -119,7 +119,7 @@ public class OrderPayController {
     @RequestMapping(value = "/delete",method = RequestMethod.POST)
     @ResponseBody
     public JsonResult delete( OrderBean orderBean) throws WxPayException {
-        //在这里操作数据库或者使用其他方法进行操作
+        //在这里操作数据库或者使用其他后调用本方法进行操作
         //创建发送给微信参数的对象
         WxPayRefundRequest payRequest = new WxPayRefundRequest();
         //里面预填写信息
