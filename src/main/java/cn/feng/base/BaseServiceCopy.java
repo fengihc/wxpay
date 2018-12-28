@@ -1,5 +1,7 @@
 package cn.feng.base;
 
+import java.util.List;
+
 /**
  * @Author feng hihc@163.com
  * @Date 2018/12/27 16:12
@@ -12,5 +14,20 @@ public abstract class BaseServiceCopy <Mapper,Bean> implements BaseService<Bean>
     @Override
     public int deleteByPrimaryKey(Integer id) {
         return 0;
+    }
+
+    @Override
+    public int addOrder(Bean bean) {
+        return 0;
+    }
+
+    @Override
+    public Bean selectBean(Bean bean) {
+        return null;
+    }
+
+    @Override
+    public List<Bean> list(Bean bean) {
+        return null;
     }
 }
