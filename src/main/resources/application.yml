@@ -1,0 +1,15 @@
+mybatis:
+  #扫描实体类
+  type-aliases-package: cn.feng.model
+  #扫描映射的xml
+  mapper-locations: classpath:mapper/*.xml
+
+
+wx:
+  pay:
+    appId: #微信公众号或者小程序等的appid
+    mchId: #微信支付商户号
+    mchKey: #微信支付商户密钥
+    #    subAppId: #服务商模式下的子商户公众账号ID   不使用时请直接删除,本项目中未使用故注释
+    #    subMchId: #服务商模式下的子商户号               以免出现其他意外问题
+    keyPath: # p12证书的位置，可以指定绝对路径，也可以指定类路径（以classpath:开头）

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.feng.dao.OrderMapper">
+    <resultMap id="BaseResultMap" type="cn.feng.model.OrderBean">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="orderid" jdbcType="BIGINT" property="orderid"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="prize" jdbcType="DOUBLE" property="prize"/>
+        <result column="openid" jdbcType="VARCHAR" property="openid"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    </delete>
+    <insert id="insert" parameterType="cn.feng.model.OrderBean">
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="cn.feng.model.OrderBean">
+
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id, orderid, status, prize, openid
+        from 表名
+        <where>
+            <!--mybati模糊查询-->
+            <if test="openid != null and openid !=''">
+                and openid like concat('%',#{openid},'%')
+            </if>
+        </where>
+    </select>
+    <select id="getCount" resultType="java.lang.Integer">
+
+    </select>
+    <select id="getList" resultMap="BaseResultMap">
+
+    </select>
+</mapper>
