@@ -65,7 +65,7 @@
         </dependency>
         <!-- 转换xml类 注意引入版本,目前是最新版本
             之前因为引入版本过低抛出NoClassDefFoundError,NoSuchMethodError异常
-            原因是某个jar包的版本过低
+            原因是某个jar包的版本过低,我的就是xstream  1.4.5版本过低问题
             -->
         <dependency>
             <groupId>com.thoughtworks.xstream</groupId>
