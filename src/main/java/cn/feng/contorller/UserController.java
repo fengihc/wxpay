@@ -144,18 +144,6 @@ public class UserController {
         payRequest.setAmount((int)(userBean.getWallet()*100));
         payRequest.setDescription("提现");
         payRequest.setSpbillCreateIp("120.193.23.130");
-        Map<String, String> map = new HashMap<>();
-        map.put("mch_appid",wxPayProperties.getAppId());
-        map.put("mchid",wxPayProperties.getMchId());
-        map.put("nonce_str",nonceStr);
-        map.put("partner_trade_no",order);
-        map.put("openid",bean.getOpenid());
-        map.put("check_name","NO_CHECK");
-        map.put("amount",String.valueOf(userBean.getWallet()*100));
-        map.put("desc","提现");
-        map.put("spbill_create_ip","120.193.23.130");
-        //本人使用的加密工具类有缺陷.所有去除了,请按照自己的方式生成
-        payRequest.setSign("签名利用map转化为xml再用md5加密放入");
         EntPayResult payResult = entPayService.entPay(payRequest);
         log.info("返回结果参数",payResult);
         if (payResult.getPaymentTime()==null){
