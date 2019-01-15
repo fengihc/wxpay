@@ -49,7 +49,7 @@ public class JsonResult {
 	}
 
 	public static JsonResult buildFailedJsonResult(String message){
-		return new JsonResult(message,false,null,0);
+		return new JsonResult(message,false);
 	}
 
 }
