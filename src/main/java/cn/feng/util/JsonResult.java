@@ -27,7 +27,7 @@ public class JsonResult {
 	 * @param message		返回的信息
 	 * @param result		返回成功或失败
 	 * @param list
-	 * @param total		后台管理需要的集合总条数
+	 * @param total		后台管理需要的数量值
 	 */
 	public JsonResult(String message, Boolean result, Object list, int total) {
 		this.message = message;
