@@ -78,7 +78,7 @@ public class UserController {
         //使用的weNet内网穿透
         String url="http:///yilianmengbi.wezoz.com/user/userInfo";
         log.info(url);
-        String redirectUrl=wxMpService.oauth2buildAuthorizationUrl(url, WxConsts.OAuth2Scope.SNSAPI_USERINFO, "");
+        String redirectUrl=wxMpService.oauth2buildAuthorizationUrl(url, WxConsts.OAuth2Scope.SNSAPI_USERINFO, returnUrl);
         log.info("【微信网页授权】获取code,redirectUrl={}",redirectUrl);
         //发出获取全部信息的授权链接 重定向到下面一个方法
         return "redirect:"+redirectUrl;
