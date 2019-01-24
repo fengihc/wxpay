@@ -118,7 +118,7 @@ public class UserController {
      */
     @ResponseBody
     @RequestMapping(value = "/cash",method = RequestMethod.POST)
-    public JsonResult cashUser(UserBean userBean) throws WxPayException {
+    public JsonResult cashUser(UserBean userBean) {
         String openid = userBean.getOpenid();
         //本控制层中的一个根据openID从数据库获取单个实体类的方法
         //获取到用户最新数据
@@ -144,7 +144,11 @@ public class UserController {
         payRequest.setAmount((int)(userBean.getWallet()*100));
         payRequest.setDescription("提现");
         payRequest.setSpbillCreateIp("120.193.23.130");
-        EntPayResult payResult = entPayService.entPay(payRequest);
+        try {
+            payResult = payService.getEntPayService().entPay(payRequest);
+        } catch (WxPayException e) {
+            //进行事物回滚--错误原因可能为企业余额不足或者单人单日提现次数上限
+        }
         log.info("返回结果参数",payResult);
         if (payResult.getPaymentTime()==null){
             //企业付款失败
